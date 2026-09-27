@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Face Attendance System</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div>
+    <h1>Face Attendance</h1>
+    <p>Face Recognition Attendance System</p>
+  </div>
+  <span class="status">● System Online</span>
+</header>
+
+<main>
+  <section class="hero">
+    <div>
+      <h2>Smart Attendance Dashboard</h2>
+      <p>Register students, train the face model and mark attendance automatically.</p>
+    </div>
+    <div class="badge">Python + OpenCV + MySQL</div>
+  </section>
+
+  <section class="grid">
+    <div class="card">
+      <h3>Register Student</h3>
+      <input id="name" placeholder="Student Name">
+      <input id="roll" placeholder="Roll Number">
+      <button onclick="registerStudent()">Register & Capture Face</button>
+      <small>Camera will open after registration.</small>
+    </div>
+
+    <div class="card">
+      <h3>Train Model</h3>
+      <p>Train the face recognizer using saved face samples.</p>
+      <button onclick="trainModel()">Train Face Model</button>
+    </div>
+
+    <div class="card">
+      <h3>Start Attendance</h3>
+      <p>Open camera and recognize registered students.</p>
+      <button onclick="startAttendance()">Start Camera</button>
+    </div>
+
+    <div class="card">
+      <h3>Export</h3>
+      <p>Download the complete attendance record as CSV.</p>
+      <button onclick="window.location='/api/export'">Export CSV</button>
+    </div>
+  </section>
+
+  <section class="card table-card">
+    <div class="table-head">
+      <h3>Attendance Records</h3>
+      <button class="secondary" onclick="loadAttendance()">Refresh</button>
+    </div>
+    <div id="message"></div>
+    <table>
+      <thead>
+        <tr><th>Roll No</th><th>Name</th><th>Date</th><th>Time</th></tr>
+      </thead>
+      <tbody id="attendanceBody"></tbody>
+    </table>
+  </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
